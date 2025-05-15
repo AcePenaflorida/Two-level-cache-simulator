@@ -30,6 +30,8 @@
 
 - Offers practical insights into cache memory design and its role in improving system efficiency
 
+- Tracks and reports **cold misses** separately for L1 and L2 caches, enhancing analysis of cache warm-up effects and replacement policies.
+
 ---
 ## Installation
 
@@ -73,4 +75,4 @@
 4. Install dependencies:
     ```bash
     pip install -r requirements.txt
-    ```
+    ``` 
