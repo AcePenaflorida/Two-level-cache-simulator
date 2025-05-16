@@ -12,6 +12,16 @@ class CacheBlock:
 
 class CacheLevel:
     def __init__(self, size, block_size, associativity, access_latency, level_name, replacement_policy='LRU'):
+        # Parameter validation
+        if size % block_size != 0:
+            raise ValueError(f"Cache size {size} must be a multiple of block size {block_size}.")
+        if (size // block_size) % associativity != 0:
+            raise ValueError(f"Number of blocks ({size // block_size}) must be divisible by associativity ({associativity}).")
+        if associativity < 1:
+            raise ValueError("Associativity must be at least 1.")
+        if block_size < 1:
+            raise ValueError("Block size must be at least 1.")
+
         self.block_size = block_size
         self.associativity = associativity
         self.num_blocks = size // block_size
